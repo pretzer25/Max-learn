@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-lZuHF5qP1Do1HzDLqA9+53sgxvZyS31jz+MMA4Ck7IU0Mymqr0FvGKKGtDff6gpf" crossorigin="anonymous">
     <style>
         #exampleButton {
             display: inline-block;
@@ -43,6 +44,21 @@
             height: 100%;
             border: none;
         }
+
+         #homeButton {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -67,6 +83,10 @@
 <!-- Invisible iframe -->
 <iframe id="fullscreen-iframe"></iframe>
 
+<button id="homeButton" onclick="resetIframe()">
+    <i class="fas fa-home" style="font-size: 40px; color: #333;"></i>
+</button>
+    
 <script>
     function gg(url) {
         // Get the iframe element
@@ -77,6 +97,12 @@
 
         // Make the iframe visible
         iframe.style.display = 'block';
+    }
+
+    
+    function resetIframe() {
+        // Hide the iframe
+        document.getElementById('fullscreen-iframe').style.display = 'none';
     }
 </script>
 

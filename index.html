@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #exampleButton {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #exampleButton:hover {
+            transform: scale(1.1);
+        }
+
+        #exampleImage {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #exampleText {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+
+        #fullscreen-iframe {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Button with image and text -->
+<button id="exampleButton" onclick="gg('https://example.com')">
+    <img id="exampleImage" src="your_image_url.jpg" alt="Example Image">
+    <p id="exampleText">Your Title</p>
+</button>
+
+<!-- Invisible iframe -->
+<iframe id="fullscreen-iframe"></iframe>
+
+<script>
+    function gg(url) {
+        // Get the iframe element
+        var iframe = document.getElementById('fullscreen-iframe');
+
+        // Set the source URL
+        iframe.src = url;
+
+        // Make the iframe visible
+        iframe.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

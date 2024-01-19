@@ -115,8 +115,11 @@
         // Get the iframe element
         var iframe = document.getElementById('fullscreen-iframe');
 
+        // Concatenate the base URL with the specified path
+        var fullURL = 'https://hororisvaryscoary.com/' + url;
+
         // Set the source URL
-        iframe.src = "https://hororisvaryscoary.vercel.app/proxy/" + url;
+        iframe.src = fullURL;
 
         // Make the iframe visible
         iframe.style.display = 'block';

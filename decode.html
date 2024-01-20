@@ -46,10 +46,12 @@ function decodeAndIframe() {
     const urlParams = new URLSearchParams(window.location.search);
     const encodedCode = urlParams.get('encodedCode');
 
-    // Decode the code based on the specified mapping
-    const decodedCode = encodedCode.replace(/[a-z]/g, function(match) {
-        return decodeMapping[match] || match;
-    });
+    // Check if encodedCode is not null or undefined
+    if (encodedCode !== null && encodedCode !== undefined) {
+        // Decode the code based on the specified mapping
+        const decodedCode = encodedCode.replace(/[a-z]/g, function(match) {
+            return decodeMapping[match] || match;
+        });
 
      // Add 'https://hi.com/' to the start of the decoded URL
     const finalURL = '/./' + decodedURL;

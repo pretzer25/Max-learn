@@ -54,20 +54,13 @@ function decodeAndIframe() {
         });
 
      // Add 'https://hi.com/' to the start of the decoded URL
-    const finalURL = '/./' + decodedURL;
+    const finalURL = 'https://hi.com' + decodedURL;
 
     // Get the iframe element by its id
     const iframe = document.getElementById('decodedIframe');
 
-
     // Set the source of the iframe to 'about:blank' first
-    iframe.src = 'about:blank';
-
-    // Wait for a short time before setting the final source
-    setTimeout(function() {
         iframe.src = finalURL;
-    }, 100);
-}
 
 // Call the decoding and iframe function on page load
 decodeAndIframe();

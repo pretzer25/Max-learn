@@ -135,19 +135,10 @@
     }
 
 
-    function ll(url) {
-        // Get the iframe element
-        var iframe = document.getElementById('fullscreen-iframe');
+function gg(url) {
+  window.location.href = url;
+}
 
-        // Concatenate the base URL with the specified path
-        var fullURL = 'https://s1p1.onrender.com/service/' + url;
-
-        // Set the source URL
-        iframe.src = fullURL;
-
-        // Make the iframe visible
-        iframe.style.display = 'block';
-    }
     
     function resetIframe() {
         // Hide the iframe

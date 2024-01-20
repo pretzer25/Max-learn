@@ -3,40 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decoded URL Page</title>
+    <title>Letter Replacement Redirect</title>
 </head>
 <body>
 
+<button onclick="go('https://example.com')">Click me</button>
+
 <script>
-function decodeAndIframe() {
-    // Define your letter mapping for decoding
-    const decodeMapping = {
-        'z': 'a',
+function go(url) {
+    // Define your letter mapping here
+    const letterMapping = {
+        'a': 'z',
+        'b': 'y',
+        'c': 'x',
+        'd': 'w',
+        'e': 'v',
+        'f': 'u',
+        'g': 't',
+        'h': 's',
+        'i': 'r',
+        'j': 'q',
+        'k': 'p',
+        'l': 'o',
+        'm': 'n',
+        'n': 'm',
+        'o': 'l',
+        'p': 'k',
+        'q': 'j',
+        'r': 'i',
+        's': 'h',
+        't': 'g',
+        'u': 'f',
+        'v': 'e',
+        'w': 'd',
+        'x': 'b',
         'y': 'b',
-        // Add more mappings as needed
+        'z': 'a',
     };
 
-    // Get the URL parameter from the current page's URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const encodedURL = urlParams.get('url');
-
-    // Decode the URL based on the specified mapping
-    const decodedURL = encodedURL.replace(/[a-z]/g, function(match) {
-        return decodeMapping[match] || match;
+    // Replace letters in the URL
+    const modifiedURL = url.replace(/[a-z]/g, function(match) {
+        return letterMapping[match] || match;
     });
 
-    // Create an iframe with the decoded URL
-    const iframe = document.createElement('iframe');
-    iframe.src = decodedURL;
-    iframe.style.width = '100%';
-    iframe.style.height = '100vh';
-
-    // Append the iframe to the body
-    document.body.appendChild(iframe);
+    // Redirect to the modified URL
+    window.location.href = 'https://hi.com/' + modifiedURL;
 }
-
-// Call the decoding and iframe function on page load
-decodeAndIframe();
 </script>
 
 </body>

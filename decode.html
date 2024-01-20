@@ -44,10 +44,10 @@ function decodeAndIframe() {
 
     // Get the URL parameter from the current page's URL
     const urlParams = new URLSearchParams(window.location.search);
-    const encodedURL = urlParams.get('url');
+    const encodedCode = urlParams.get('encodedCode');
 
-    // Decode the URL based on the specified mapping
-    const decodedURL = encodedURL.replace(/[a-z]/g, function(match) {
+    // Decode the code based on the specified mapping
+    const decodedCode = encodedCode.replace(/[a-z]/g, function(match) {
         return decodeMapping[match] || match;
     });
 

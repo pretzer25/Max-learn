@@ -51,11 +51,14 @@ function decodeAndIframe() {
         return decodeMapping[match] || match;
     });
 
+     // Add 'https://hi.com/' to the start of the decoded URL
+    const finalURL = '/./' + decodedURL;
+
     // Get the iframe element by its id
     const iframe = document.getElementById('decodedIframe');
 
-    // Set the source of the iframe to the decoded URL
-    iframe.src = decodedURL;
+    // Set the source of the iframe to the final URL
+    iframe.src = finalURL;
 }
 
 // Call the decoding and iframe function on page load

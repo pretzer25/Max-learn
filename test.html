@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoded URL Page</title>
+</head>
+<body>
+
+<script>
+function decodeAndIframe() {
+    // Define your letter mapping for decoding
+    const decodeMapping = {
+        'z': 'a',
+        'y': 'b',
+        // Add more mappings as needed
+    };
+
+    // Get the URL parameter from the current page's URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedURL = urlParams.get('url');
+
+    // Decode the URL based on the specified mapping
+    const decodedURL = encodedURL.replace(/[a-z]/g, function(match) {
+        return decodeMapping[match] || match;
+    });
+
+    // Create an iframe with the decoded URL
+    const iframe = document.createElement('iframe');
+    iframe.src = decodedURL;
+    iframe.style.width = '100%';
+    iframe.style.height = '100vh';
+
+    // Append the iframe to the body
+    document.body.appendChild(iframe);
+}
+
+// Call the decoding and iframe function on page load
+decodeAndIframe();
+</script>
+
+</body>
+</html>

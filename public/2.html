@@ -23,9 +23,15 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: #333; /* Replace with your desired text color */
+      color: transparent; /* Initially transparent text */
       background-size: cover;
       background-position: center;
+      transition: color 0.3s, filter 0.3s;
+    }
+
+    .game-button:hover {
+      color: #fff; /* Text color when hovering */
+      filter: brightness(0.8); /* Darken the background image when hovering */
     }
   </style>
   <title>Browser Games</title>
@@ -45,6 +51,16 @@
 
         // Open the game link in a new tab when the button is clicked
         button.addEventListener('click', () => window.open(game.url, '_blank'));
+
+        // Show text on mouse enter
+        button.addEventListener('mouseenter', () => {
+          button.style.color = '#fff'; // Text color when hovering
+        });
+
+        // Hide text on mouse leave
+        button.addEventListener('mouseleave', () => {
+          button.style.color = 'transparent'; // Initially transparent text
+        });
 
         body.appendChild(button);
       });

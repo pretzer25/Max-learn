@@ -1,61 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: flex-start;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--             padding: 10px 20px; -->
+    <style>
+        body {
+            background-color: #334;
+        }
+        
+        .container {
+            display: flex;
+            gap: 10px; /* Adjust the value as needed */
+        }
+        
+        #exampleButton {
+            display: inline-block;
+            padding: 10px;
+            width: 150px;
+            height: 150px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .game-button {
-      width: 175px;
-      height: 175px;
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: #f0f0f0; /* Replace with your desired background color */
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #333; /* Replace with your desired text color */
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
-  <title>Browser Games</title>
+        #exampleButton:hover {
+            transform: scale(1.1);
+        }
+
+        #exampleImage {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #exampleText {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-top: 5px;
+        }
+
+        #fullscreen-iframe {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+    </style>
 </head>
 <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>ATTENTION! This website is made for educational purposes only, we do not care about you getting expelled cuz u were playing Fortnite in the middle of social studies (or any other class)</h1>
+    <div id="container">
+<!-- Button with image and text -->
+<button id="exampleButton" onclick="gg('/./g/hl.html')">
+    <img id="exampleImage" src="/./assets/img/hl.png">
+    <p id="exampleText">Half life</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/sk.html')">
+    <img id="exampleImage" src="/./assets/img/sk.png">
+    <p id="exampleText">Smash Karts</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/cs.html')">
+    <img id="exampleImage" src="/./assets/img/cs.png">
+    <p id="exampleText">Counter strike</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/ro.html')">
+    <img id="exampleImage" src="/./assets/img/ro.png">
+    <p id="exampleText">Robl0x</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/hw.html')">
+    <img id="exampleImage" src="/./assets/img/hw.png">
+    <p id="exampleText">H4ppy wh33ls</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/ng.html')">
+    <img id="exampleImage" src="/./assets/img/ng.png">
+    <p id="exampleText">Now gg</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/dd.html')">
+    <img id="exampleImage" src="/./assets/img/dc.png">
+    <p id="exampleText">Discord</p>
+</button>
+<button id="exampleButton" onclick="gg('https://nowgg.nl/apps/konami/2641/efootball-2024.html')">
+    <img id="exampleImage" src="/./assets/img/el.png">
+    <p id="exampleText">E-Footbal</p>
+</button>
+<button id="exampleButton" onclick="gg('/./g/ge.html')">
+    <img id="exampleImage" src="/./assets/img/ge.png">
+    <p id="exampleText">google.com</p>
+</button>
 
-  <script>
-    // Function to create game buttons
-    function createGameButtons(gamesData) {
-      const body = document.body;
+</button>
 
-      gamesData.forEach(game => {
-        const button = document.createElement('div');
-        button.className = 'game-button';
-        button.textContent = game.name;
-        button.style.backgroundImage = `url(${game.icon})`; // Set background image
+    </div>
+<!-- Invisible iframe -->
+<iframe id="fullscreen-iframe"></iframe>
 
-        // Open the game link in a new tab when the button is clicked
-        button.addEventListener('click', () => window.open(game.url, '_blank'));
+<script> src="/./assets/js/link.js"</script>
 
-        body.appendChild(button);
-      });
-    }
+<script>
 
-    // Fetch the JSON file
-    fetch('/./2.json')
-      .then(response => response.json())
-      .then(data => createGameButtons(data))
-      .catch(error => console.error('Error fetching JSON:', error));
-  </script>
+function gg(url) {
+  window.location.href = url;
+}
+
+</script>
 
 </body>
 </html>

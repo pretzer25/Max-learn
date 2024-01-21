@@ -9,46 +9,16 @@
       flex-wrap: wrap;
       gap: 25px;
       justify-content: flex-start;
-      background-color: #607c8e;
-      padding: 20px;
     }
 
     .game-button {
-      position: relative;
       width: 175px;
       height: 175px;
       border-radius: 15px;
       overflow: hidden;
-      background-color: #f0f0f0; /* Replace with your desired background color */
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: transparent; /* Initially transparent text */
-      transition: color 0.3s;
-    }
-
-    .game-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       background-size: cover;
       background-position: center;
-      filter: brightness(1); /* Initially full brightness */
-      transition: filter 0.3s;
-    }
-
-    .game-button:hover::before {
-      filter: brightness(0.8); /* Darken the background image when hovering */
-    }
-
-    .game-button:hover {
-      color: #fff; /* Text color when hovering */
     }
   </style>
   <title>Browser Games</title>
@@ -64,22 +34,9 @@
         const button = document.createElement('div');
         button.className = 'game-button';
         button.style.backgroundImage = `url(${game.icon})`; // Set background image
-        button.textContent = game.name;
 
         // Open the game link in a new tab when the button is clicked
         button.addEventListener('click', () => window.open(game.url, '_blank'));
-
-        // Show text on mouse enter
-        button.addEventListener('mouseenter', () => {
-          button.style.filter = 'brightness(0.8)'; // Darken the background image
-          button.style.color = '#fff'; // Text color when hovering
-        });
-
-        // Hide text on mouse leave
-        button.addEventListener('mouseleave', () => {
-          button.style.filter = 'brightness(1)'; // Reset brightness
-          button.style.color = 'transparent'; // Initially transparent text
-        });
 
         body.appendChild(button);
       });

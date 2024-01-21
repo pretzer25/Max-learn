@@ -3,53 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter Replacement Redirect</title>
+    <title>Link Sender</title>
 </head>
 <body>
+    <h1>Link Sender</h1>
+    <button onclick="sendLink('https://example.com')">Send Link</button>
 
-<button onclick="go('https://example.com')">Click me</button>
+    <script>
+        // Function to add a random letter between each letter in the link
+        function addRandomLetters(link) {
+            return link.split('').map(char => char + String.fromCharCode(65 + Math.floor(Math.random() * 26))).join('');
+        }
 
-<script>
-function go(url) {
-    // Define your letter mapping here
-    const letterMapping = {
-        'a': 'z',
-        'b': 'y',
-        'c': 'x',
-        'd': 'w',
-        'e': 'v',
-        'f': 'u',
-        'g': 't',
-        'h': 's',
-        'i': 'r',
-        'j': 'q',
-        'k': 'p',
-        'l': 'o',
-        'm': 'n',
-        'n': 'm',
-        'o': 'l',
-        'p': 'k',
-        'q': 'j',
-        'r': 'i',
-        's': 'h',
-        't': 'g',
-        'u': 'f',
-        'v': 'e',
-        'w': 'd',
-        'x': 'b',
-        'y': 'b',
-        'z': 'a',
-    };
-
-    // Replace letters in the URL
-    const modifiedURL = url.replace(/[a-z]/g, function(match) {
-        return letterMapping[match] || match;
-    });
-
-    // Redirect to the modified URL
-    window.location.href = '/./decode.html?' + modifiedURL;
-}
-</script>
-
+        // Function to send link to go.html
+        function sendLink(link) {
+            const modifiedLink = addRandomLetters(link);
+            // Open go.html in a new window and pass the modified link as a query parameter
+            window.open(`go.html?link=${encodeURIComponent(modifiedLink)}`, '_blank');
+        }
+    </script>
 </body>
 </html>

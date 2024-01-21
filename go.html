@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFrame Page</title>
+    <title>loading...</title>
+    <style>
+          #myIframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+</style>
 </head>
 <body>
-    <h1>Content inside IFrame</h1>
-    <iframe src="" id="myIframe" width="600" height="400" frameborder="0"></iframe>
+    <iframe src="" id="myIframe"></iframe>
 
     <script>
         // Function to set the iframe source by removing random letters

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFrame Page</title>
+</head>
+<body>
+    <h1>Content inside IFrame</h1>
+    <iframe src="" id="myIframe" width="600" height="400" frameborder="0"></iframe>
+
+    <script>
+        // Function to set the iframe source by removing random letters
+        function setIframeSource(link) {
+            const cleanLink = link.replace(/[A-Z]/g, ''); // Remove random letters
+            document.getElementById('myIframe').src = cleanLink;
+        }
+
+        // Function to receive link from the parent window
+        function receiveLink() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const link = urlParams.get('link');
+            if (link) {
+                setIframeSource(link);
+            }
+        }
+
+        // Call receiveLink when the page loads
+        window.onload = receiveLink;
+    </script>
+</body>
+</html>

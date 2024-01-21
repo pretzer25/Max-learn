@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Sender</title>
-</head>
-<body>
-    <h1>Link Sender</h1>
-    <button onclick="sendLink('https://example.com')">Send Link</button>
 
-    <script>
+    // <button onclick="sendLink('https://example.com')">Send Link</button>
+
         // Function to add a random letter between each letter in the link
         function addRandomLetters(link) {
             return link.split('').map(char => char + String.fromCharCode(65 + Math.floor(Math.random() * 26))).join('');
@@ -21,6 +12,3 @@
             // Open go.html in a new window and pass the modified link as a query parameter
             window.open(`go.html?link=${encodeURIComponent(modifiedLink)}`, '_blank');
         }
-    </script>
-</body>
-</html>

@@ -2,11 +2,11 @@
   {
     "name": "example.com",
     "url": "https://example.com/",
-    "icon": "URL_TO_ICON"
+    "icon": "https://gclabels.net/image/cache/data/new/inv/new/Blank-Fluorescent-Yellow-Square-Labels-s1y-600x600.png"
   },
   {
-    "name": "Doomed.io",
+    "name": "example.org",
     "url": "https://example.org/",
-    "icon": "URL_TO_ICON"
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/000080_Navy_Blue_Square.svg/1200px-000080_Navy_Blue_Square.svg.png"
   }
 ]

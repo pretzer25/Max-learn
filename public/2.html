@@ -30,7 +30,8 @@
       transition: color 0.3s;
     }
 
-    .game-image {
+    .game-button::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -42,7 +43,7 @@
       transition: filter 0.3s;
     }
 
-    .game-button:hover .game-image {
+    .game-button:hover::before {
       filter: brightness(0.8); /* Darken the background image when hovering */
     }
 
@@ -62,12 +63,7 @@
       gamesData.forEach(game => {
         const button = document.createElement('div');
         button.className = 'game-button';
-        
-        const image = document.createElement('div');
-        image.className = 'game-image';
-        image.style.backgroundImage = `url(${game.icon})`; // Set background image
-        button.appendChild(image);
-
+        button.style.backgroundImage = `url(${game.icon})`; // Set background image
         button.textContent = game.name;
 
         // Open the game link in a new tab when the button is clicked
@@ -75,13 +71,13 @@
 
         // Show text on mouse enter
         button.addEventListener('mouseenter', () => {
-          image.style.filter = 'brightness(0.8)'; // Darken the background image
+          button.style.filter = 'brightness(0.8)'; // Darken the background image
           button.style.color = '#fff'; // Text color when hovering
         });
 
         // Hide text on mouse leave
         button.addEventListener('mouseleave', () => {
-          image.style.filter = 'brightness(1)'; // Reset brightness
+          button.style.filter = 'brightness(1)'; // Reset brightness
           button.style.color = 'transparent'; // Initially transparent text
         });
 

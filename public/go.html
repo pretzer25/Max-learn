@@ -30,7 +30,11 @@
             const urlParams = new URLSearchParams(window.location.search);
             const link = urlParams.get('link');
             if (link) {
-                setIframeSource(link);
+// Concatenate "https://hi.com/" with the provided link
+var iframeLink = "https://s1p1.onrender.com/service/" + link;
+
+// Set the iframe source with the concatenated link
+setIframeSource(iframeLink);
             }
         }
 

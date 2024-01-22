@@ -1,0 +1,48 @@
+<body onload="fullscreenFunction()">
+
+<script>
+var elem = document.documentElement;
+
+function fullscreenFunction() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { 
+    elem.webkitRequestFullscreen(); // Safari
+  } else if (elem.msRequestFullscreen) { 
+    elem.msRequestFullscreen(); // IE11
+  }
+  
+  // Hide the address bar in mobile safari
+  window.scrollTo(0, 1);
+  
+  // Exit fullscreen when F9 is pressed
+  document.onkeydown = function(e) {
+    if(e.keyCode == 120) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (document.webkitFullscreenElement) {
+        document.webkitExitFullscreen();
+      } else if (document.msFullscreenElement) {
+        document.msExitFullscreen();
+      }
+    }
+  };
+  
+  // Make fullscreen again after escape key is pressed
+  document.onkeyup = function(e) {
+    if(e.keyCode == 27) {
+      setTimeout(function() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { 
+          elem.webkitRequestFullscreen(); // Safari
+        } else if (elem.msRequestFullscreen) { 
+          elem.msRequestFullscreen(); // IE11
+        }
+      }, 100);
+    }
+  };
+}
+</script>
+
+</body>

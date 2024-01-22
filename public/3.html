@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right-Click Context Menu</title>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            var contextMenu = document.createElement('div');
+            contextMenu.setAttribute('id', 'customContextMenu');
+            contextMenu.style.position = 'absolute';
+            contextMenu.style.backgroundColor = 'white';
+            contextMenu.style.border = '1px solid black';
+            contextMenu.style.padding = '5px';
+
+            var hiOption = document.createElement('a');
+            hiOption.setAttribute('href', '#');
+            hiOption.textContent = 'Hi';
+            hiOption.addEventListener('click', function() {
+                alert('Hi');
+            });
+            contextMenu.appendChild(hiOption);
+
+            var aboutUsOption = document.createElement('a');
+            aboutUsOption.setAttribute('href', 'https://www.example.org');
+            aboutUsOption.textContent = 'About Us';
+            aboutUsOption.addEventListener('click', function() {
+                window.open(this.href);
+            });
+            contextMenu.appendChild(aboutUsOption);
+
+            var byeOption = document.createElement('a');
+            byeOption.setAttribute('href', '#');
+            byeOption.textContent = 'Bye';
+            byeOption.addEventListener('click', function() {
+                alert('Bye');
+            });
+            contextMenu.appendChild(byeOption);
+
+            contextMenu.style.left = e.pageX + 'px';
+            contextMenu.style.top = e.pageY + 'px';
+
+            document.body.appendChild(contextMenu);
+
+            setTimeout(function() {
+                document.body.removeChild(contextMenu);
+            }, 5000);
+        });
+    </script>
+    <style>
+        #customContextMenu {
+            display: flex;
+            flex-direction: column;
+        }
+        #customContextMenu a {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>Right-click on this page to see the custom context menu.</p>
+</body>
+</html>

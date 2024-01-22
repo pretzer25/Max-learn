@@ -36,7 +36,7 @@
         button.style.backgroundImage = `url(${game.icon})`; // Set background image
 
         // Open the game link in a new tab when the button is clicked
-        button.addEventListener('click', () => window.open(game.url, '_blank'));
+        button.addEventListener('click', () => window.location.href = game.url);
 
         body.appendChild(button);
       });

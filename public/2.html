@@ -9,7 +9,6 @@
       flex-wrap: wrap;
       gap: 25px;
       justify-content: flex-start;
-      align-items: flex-start; /* Align items to the start */
       padding: 20px;
       background-color: #607c8e;
     }
@@ -29,54 +28,60 @@
       color: #333; /* Replace with your desired text color */
       background-size: cover;
       background-position: center;
+      display: none; /* Initially hide buttons */
     }
 
-    #searchBox {
-      margin-bottom: 15px;
+    #search-box {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
     }
   </style>
-  <title>Browser</title>
+  <title>Browser Games</title>
 </head>
 <body>
 
-  <input type="text" id="searchBox" placeholder="Search for stuff">
+  <input type="text" id="search-box" placeholder="Search games...">
 
-  <br>
-  <br>
-  
   <script>
-    // Function to create game buttons based on search term
-    function createGameButtons(gamesData, searchTerm) {
+    // Function to create game buttons
+    function createGameButtons(gamesData) {
       const body = document.body;
-      body.innerHTML = ''; // Clear existing content
 
       gamesData.forEach(game => {
-        // Check if the search term is in the game name or not
-        const isMatch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const button = document.createElement('div');
+        button.className = 'game-button';
+        button.style.backgroundImage = `url(${game.icon})`; // Set background image
 
-        if (isMatch) {
-          const button = document.createElement('div');
-          button.className = 'game-button';
-          button.style.backgroundImage = `url(${game.icon})`; // Set background image
+        // Open the game link in a new tab when the button is clicked
+        button.addEventListener('click', () => window.open(game.url, '_blank'));
 
-          // Open the game link in a new tab when the button is clicked
-          button.addEventListener('click', () => window.open(game.url, '_blank'));
+        body.appendChild(button);
+      });
+    }
 
-          body.appendChild(button);
+    // Function to filter and display buttons based on search term
+    function filterButtons(searchTerm) {
+      const buttons = document.querySelectorAll('.game-button');
+      buttons.forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes(searchTerm.toLowerCase())) {
+          button.style.display = 'flex'; // Display if it matches the search term
+        } else {
+          button.style.display = 'none'; // Hide if it doesn't match
         }
       });
     }
 
     // Fetch the JSON file
-    fetch('2.json')
+    fetch('your_json_file.json')
       .then(response => response.json())
       .then(data => {
-        // Initial rendering with an empty search term
-        createGameButtons(data, '');
+        createGameButtons(data);
 
-        // Handle input changes for dynamic search
-        const searchBox = document.getElementById('searchBox');
-        searchBox.addEventListener('input', () => createGameButtons(data, searchBox.value));
+        // Add event listener to the search box
+        const searchBox = document.getElementById('search-box');
+        searchBox.addEventListener('input', () => filterButtons(searchBox.value));
       })
       .catch(error => console.error('Error fetching JSON:', error));
   </script>

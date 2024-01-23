@@ -1,12 +1,42 @@
 [
   {
-    "name": "example.com",
-    "url": "https://example.com/",
-    "icon": "https://gclabels.net/image/cache/data/new/inv/new/Blank-Fluorescent-Yellow-Square-Labels-s1y-600x600.png"
+    "name": "cs",
+    "url": "/./g/cs.html",
+    "icon": "/./assets/img/cs.png"
   },
   {
-    "name": "example.org",
-    "url": "https://example.org/",
-    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/000080_Navy_Blue_Square.svg/1200px-000080_Navy_Blue_Square.svg.png"
+    "name": "dd",
+    "url": "/./g/dd.html",
+    "icon": "/./assets/img/dc.png"
+  },
+  {
+    "name": "ge",
+    "url": "/./g/ge.html",
+    "icon": "/./assets/img/ge.png"
+  },
+  {
+    "name": "hl",
+    "url": "/./g/hl.html",
+    "icon": "/./assets/img/hl.png"
+  },
+  {
+    "name": "hw",
+    "url": "/./g/hw.html",
+    "icon": "/./assets/img/hw.png"
+  },
+  {
+    "name": "ng",
+    "url": "/./g/ng.html",
+    "icon": "/./assets/img/ng.png"
+  },
+  {
+    "name": "ro",
+    "url": "/./g/ro.html",
+    "icon": "/./assets/img/ro.png"
+  },
+  {
+    "name": "sk",
+    "url": "/./g/sk.html",
+    "icon": "/./assets/img/sk.png"
   }
 ]

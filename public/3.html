@@ -1,78 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Right-Click Context Menu</title>
-    <script>
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            var contextMenu = document.createElement('div');
-            contextMenu.setAttribute('id', 'customContextMenu');
-            contextMenu.style.position = 'absolute';
-            contextMenu.style.backgroundColor = 'white';
-            contextMenu.style.border = '1px solid black';
-            contextMenu.style.padding = '5px';
-            contextMenu.style.fontFamily = 'Arial, sans-serif';
-            contextMenu.style.color = 'black';
-            contextMenu.style.textDecoration = 'none';
+    <title>Dark Mode Example</title> 
+    <style> 
+        :root { /* Dark mode styles */ 
+        
+        background-color: #1a1a1a; 
+        color: #ddd; 
+        transition: background-color 1s ease; } 
+        .flash { background-color: #fff; } 
+    </style> 
+</head> 
+<body> 
+    <h1>Welcome to my dark mode page!</h1> 
+    <p>This page has lots of content, including a random flash of white every so often.</p> 
+    <script> // Set the page to dark mode 
+        document.documentElement.classList.add("darkmode");
+// Function to randomly flash the page white 
+        function flashPage() { 
+            // Add the flash class to the page 
+            document.documentElement.classList.add("flash");
 
-            var hiOption = document.createElement('a');
-            hiOption.setAttribute('href', '#');
-            hiOption.textContent = 'Hacks';
-            hiOption.addEventListener('click', function() {
-                alert('U seriously thought we we're smart enough to add hacks????');
-            });
-            contextMenu.appendChild(hiOption);
+// Remove the flash class after a random amount of time (1-10 seconds) 
+            setTimeout(() => { document.documentElement.classList.remove("flash"); }, Math.random() * 9000 + 1000); }
 
-            var hr1 = document.createElement('hr');
-            contextMenu.appendChild(hr1);
+// Call the flashPage function every so often (1-10 seconds) 
+        setInterval(flashPage, Math.random() * 9000 + 1000); </script>
 
-            var aboutUsOption = document.createElement('a');
-            aboutUsOption.setAttribute('href', 'https://www.google.com');
-            aboutUsOption.textContent = 'PANIC!!!';
-            aboutUsOption.addEventListener('click', function() {
-                  window.location.href = this.href; 
-            });
-            contextMenu.appendChild(aboutUsOption);
-
-            var hr2 = document.createElement('hr');
-            contextMenu.appendChild(hr2);
-
-            var byeOption = document.createElement('a');
-            byeOption.setAttribute('href', '#');
-            byeOption.textContent = 'Calculator';
-            byeOption.addEventListener('click', function() {
-                alert('Well, its time, bye Cal, lator!');
-            });
-            contextMenu.appendChild(byeOption);
-
-            contextMenu.style.left = e.pageX + 'px';
-            contextMenu.style.top = e.pageY + 'px';
-
-            document.body.appendChild(contextMenu);
-
-            document.body.addEventListener('click', function(e) {
-                if (e.target.id !== 'customContextMenu') {
-                    document.body.removeChild(contextMenu);
-                }
-            });
-        });
-    </script>
-    <style>
-        #customContextMenu {
-            display: flex;
-            flex-direction: column;
-        }
-        #customContextMenu a {
-            margin-bottom: 5px;
-        }
-        #customContextMenu hr {
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
-    <p>Right-click on this page to see the custom context menu.</p>
-</body>
-</html>
+</body> </html>

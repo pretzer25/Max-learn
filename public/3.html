@@ -13,6 +13,9 @@
             contextMenu.style.backgroundColor = 'white';
             contextMenu.style.border = '1px solid black';
             contextMenu.style.padding = '5px';
+            contextMenu.style.fontFamily = 'Arial, sans-serif';
+            contextMenu.style.color = 'black';
+            contextMenu.style.textDecoration = 'none';
 
             var hiOption = document.createElement('a');
             hiOption.setAttribute('href', '#');
@@ -22,6 +25,9 @@
             });
             contextMenu.appendChild(hiOption);
 
+            var hr1 = document.createElement('hr');
+            contextMenu.appendChild(hr1);
+
             var aboutUsOption = document.createElement('a');
             aboutUsOption.setAttribute('href', 'https://www.example.org');
             aboutUsOption.textContent = 'About Us';
@@ -29,6 +35,9 @@
                 window.open(this.href);
             });
             contextMenu.appendChild(aboutUsOption);
+
+            var hr2 = document.createElement('hr');
+            contextMenu.appendChild(hr2);
 
             var byeOption = document.createElement('a');
             byeOption.setAttribute('href', '#');
@@ -43,9 +52,11 @@
 
             document.body.appendChild(contextMenu);
 
-            setTimeout(function() {
-                document.body.removeChild(contextMenu);
-            }, 5000);
+            document.body.addEventListener('click', function(e) {
+                if (e.target.id !== 'customContextMenu') {
+                    document.body.removeChild(contextMenu);
+                }
+            });
         });
     </script>
     <style>
@@ -55,6 +66,9 @@
         }
         #customContextMenu a {
             margin-bottom: 5px;
+        }
+        #customContextMenu hr {
+            margin: 5px 0;
         }
     </style>
 </head>

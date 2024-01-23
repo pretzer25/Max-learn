@@ -32,7 +32,7 @@
             aboutUsOption.setAttribute('href', 'https://www.google.com');
             aboutUsOption.textContent = 'PANIC!!!';
             aboutUsOption.addEventListener('click', function() {
-                window.open(this.href);
+                  window.location.href = this.href; 
             });
             contextMenu.appendChild(aboutUsOption);
 

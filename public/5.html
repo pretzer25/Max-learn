@@ -10,3 +10,33 @@
 </style>
 
 <iframe id="ifra" src="https://www.keyboardtester.com/tester.html"></iframe>
+
+<script>
+  // Get the iframe element
+  var iframe = document.getElementById("ifra");
+
+  // Add event listener to the iframe's contentWindow
+  iframe.contentWindow.addEventListener("keydown", function(event) {
+    // Check if the Shift key is pressed
+    if (event.shiftKey) {
+      // Prevent the default behavior of the Shift key
+      event.preventDefault();
+
+      // Simulate the Ctrl key press
+      var ctrlEvent = new Event("keydown");
+      ctrlEvent.key = "Control";
+      iframe.contentWindow.dispatchEvent(ctrlEvent);
+    }
+  });
+
+  // Add event listener to capture the Shift key release
+  iframe.contentWindow.addEventListener("keyup", function(event) {
+    // Check if the Shift key is released
+    if (!event.shiftKey) {
+      // Simulate the Ctrl key release
+      var ctrlEvent = new Event("keyup");
+      ctrlEvent.key = "Control";
+      iframe.contentWindow.dispatchEvent(ctrlEvent);
+    }
+  });
+</script>

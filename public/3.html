@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
- .color {
-    color: #000;
- }
- .hide {
-    color: #fff;
-    transition: color 1s;
- }
-</style>
+ <title>JS Lag Example</title>
+ <script>
+    function showLag() {
+      for (var i = 0; i < 10000; i++) {
+        window.open("", "lag", "width=1,height=1");
+      }
+    }
+ </script>
 </head>
 <body>
-
-<h1 id="heading" class="color">This is an example page from example.com</h1>
-
-<script>
- var delay = Math.floor(Math.random() * 60000) + 1000; // random delay between 1 sec to 1 minutes and 15 seconds
- setTimeout(function() {
-    document.getElementById("heading").className = "hide";
-    setTimeout(function() {
-      document.getElementById("heading").style.display = "none";
-    }, 1000);
- }, delay);
-</script>
-
+ <button onclick="showLag()">Click me!</button>
 </body>
 </html>

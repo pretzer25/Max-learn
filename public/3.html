@@ -22,9 +22,9 @@
             document.documentElement.classList.add("flash");
 
 // Remove the flash class after a random amount of time (1-10 seconds) 
-            setTimeout(() => { document.documentElement.classList.remove("flash"); }, Math.random() * 2000 + 1000); }
+            setTimeout(() => { document.documentElement.classList.remove("flash"); }, 1000);
 
 // Call the flashPage function every so often (1-10 seconds) 
-        setInterval(flashPage, Math.random() * 9000 + 1000); </script>
-
+            setInterval(flashPage, Math.random() * (300000 - 5000) + 5000);
+    </script>
 </body> </html>

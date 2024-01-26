@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="generateEmails()">Generate Emails</button>
+
+<div id="output"></div>
+
+<script>
+function generateEmails() {
+  for (let i = 1; i <= 9999999; i++) {
+    const p = document.createElement("p");
+    p.textContent = i + "@gmail.com";
+    document.getElementById("output").appendChild(p);
+  }
+}
+</script>
+
+</body>
+</html>

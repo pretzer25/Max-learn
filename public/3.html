@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html>
-<body>
-
+<!DOCTYPE html> <html> <body>
 <button onclick="generateEmails()">Generate</button>
 
-<div id="output"></div>
-
-<script>
-let i = 1;
-function generateEmails() {
-  const p = document.createElement("p");
-  p.textContent = i + "@student.harmonytx.org";
-  document.getElementById("output").appendChild(p);
-  i++;
-  if (i <= 9999999) {
-    setTimeout(generateEmails, 2); // wait 0.005 seconds before generating the next email
-    scrollToBottom();
-  }
-}
-
-  function scrollToBottom() {
-  const output = document.getElementById("output");
-  output.scrollTop = output.scrollHeight;
-}
+<div id="output"></div> <script> let i = 1; 
+  function generateEmails() { 
+    for (let j = 0; j < 1000; j++) { 
+      const p = document.createElement("p"); 
+      p.textContent = i + "@student.harmonytx.org"; 
+      document.getElementById("output").appendChild(p); i++; } 
+    if (i <= 9999999) { 
+  setTimeout(generateEmails, 2); 
+  // wait 0.002 seconds before generating the next 1000 emails
+  scrollToBottom(); } } 
+                                                                                                                                                                                                                                                                      
+  function scrollToBottom() {                                                                                                                                                                                                                                                                   
+    const output = document.getElementById("output");                                                                                                                                                                                                                                                                 
+    output.scrollTop = output.scrollHeight; 
+                                                                                                                                                                                                                                                                          } 
 </script>
-
-</body>
+</body> 
 </html>

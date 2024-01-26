@@ -7,11 +7,14 @@
 <div id="output"></div>
 
 <script>
+let i = 1;
 function generateEmails() {
-  for (let i = 1; i <= 9999999; i++) {
-    const p = document.createElement("p");
-    p.textContent = i + "@gmail.com";
-    document.getElementById("output").appendChild(p);
+  const p = document.createElement("p");
+  p.textContent = i + "@gmail.com";
+  document.getElementById("output").appendChild(p);
+  i++;
+  if (i <= 9999999) {
+    setTimeout(generateEmails, 5); // wait 0.005 seconds before generating the next email
   }
 }
 </script>

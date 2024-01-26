@@ -15,7 +15,13 @@ function generateEmails() {
   i++;
   if (i <= 9999999) {
     setTimeout(generateEmails, 2); // wait 0.005 seconds before generating the next email
+    scrollToBottom();
   }
+}
+
+  function scrollToBottom() {
+  const output = document.getElementById("output");
+  output.scrollTop = output.scrollHeight;
 }
 </script>
 

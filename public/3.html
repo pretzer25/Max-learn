@@ -1,21 +1,31 @@
 <!DOCTYPE html> <html> <body>
-<button onclick="generateEmails()">Generate</button>
+ <script> 
+  function gg(url) {
+  const randomValue = Math.random();
+  const consoleMessage = `Random value: ${randomValue}`;
 
-<div id="output"></div> <script> let i = 1; 
-  function generateEmails() { 
-    for (let j = 0; j < 1000; j++) { 
-      const p = document.createElement("p"); 
-      p.textContent = i + "@student.harmonytx.org"; 
-      document.getElementById("output").appendChild(p); i++; } 
-    if (i <= 9999999) { 
-  setTimeout(generateEmails, 2); 
-  // wait 0.002 seconds before generating the next 1000 emails
-  scrollToBottom(); } } 
-                                                                                                                                                                                                                                                                      
-  function scrollToBottom() {                                                                                                                                                                                                                                                                   
-    const output = document.getElementById("output");                                                                                                                                                                                                                                                                 
-    output.scrollTop = output.scrollHeight; 
-                                                                                                                                                                                                                                                                          } 
+  const consoleElement = document.createElement('p');
+  consoleElement.innerText = consoleMessage;
+  document.body.appendChild(consoleElement);
+
+  if (randomValue < 0.10) {
+    const redirectMessage = `Redirecting to ${url}`;
+
+    const redirectElement = document.createElement('p');
+    redirectElement.innerText = redirectMessage;
+    document.body.appendChild(redirectElement);
+
+    window.location.href = url;
+  } else {
+    const redirectMessage = `Redirecting to ./3.html`;
+
+    const redirectElement = document.createElement('p');
+    redirectElement.innerText = redirectMessage;
+    document.body.appendChild(redirectElement);
+
+    window.location.href = './3.html';
+  }
+}                                                                                                                                                                                                                                                                  } 
 </script>
 </body> 
 </html>

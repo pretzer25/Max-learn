@@ -1,12 +1,11 @@
 <button id="openNewPage">Open new page</button>
-<body onload="openPage()"
 
 <script>
   // Get the button element
   const openNewPageButton = document.getElementById("openNewPage");
 
   // Add click event listener to the open new page button
-function openPage() {
+  openNewPageButton.addEventListener("click", () => {
     // Create a new window with about:blank page
     const newWindow = window.open("about:blank", "_blank");
 
@@ -24,11 +23,11 @@ function openPage() {
 </style>
 
 <iframe id="ifra" src="/./1.html"></iframe>
-    `); };
+    `);
 
     // Close the current window when the new page loads
     newWindow.onload = function() {
-      setTimeout {
+      setTimeout(function() {
         window.close();
       }, 0);
     };

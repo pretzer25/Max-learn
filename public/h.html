@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Example.org</title>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    window.onload = function() {
+      // Create a new XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Set the URL to example.org
+      xhr.open('GET', 'https://www.example.org/', true);
+
+      // Set the responseType to 'document'
+      xhr.responseType = 'document';
+
+      // Send the request
+      xhr.send();
+
+      // Define a callback function for when the response is received
+      xhr.onload = function() {
+        // Check if the request was successful
+        if (xhr.status === 200) {
+          // Create a new <div> element to hold the custom content
+          var customContent = document.createElement('div');
+
+          // Add the custom HTML content to the <div> element
+          customContent.innerHTML = '<h1>Hello, this is your custom HTML content!</h1>';
+
+          // Get the <div> element with the ID "content"
+          var contentDiv = document.getElementById('content');
+
+          // Replace the existing content of the <div> element with the custom content
+          contentDiv.replaceChildren(customContent);
+
+          // Insert the modified example.org content into the custom content <div>
+          customContent.appendChild(xhr.response.querySelector('body'));
+        } else {
+          console.log('Request failed with status ' + xhr.status);
+        }
+      };
+    };
+  </script>
+</body>
+</html>

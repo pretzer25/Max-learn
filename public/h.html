@@ -41,7 +41,7 @@
 
     function iframeCurrentItem() {
         const currentListItem = listItems[currentIndex];
-        const iframeCode = `<iframe src="${currentListItem}"></iframe>`;
+        const iframeCode = `<iframe id="ifra" src="${currentListItem}"></iframe>`;
         displayedItem.innerHTML = iframeCode;
     }
 

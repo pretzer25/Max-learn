@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Navigation</title>
+    <style>
+          #ifra {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+</style>
 </head>
 <body>
 
@@ -40,7 +50,7 @@
 
     function iframeCurrentItem() {
         const currentListItem = listItems[currentIndex];
-        const iframeCode = `<iframe src="${currentListItem}"></iframe>`;
+        const iframeCode = `<iframe id="ifra" src="${currentListItem}"></iframe>`;
         displayedItem.innerHTML = iframeCode;
     }
 

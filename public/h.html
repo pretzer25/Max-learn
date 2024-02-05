@@ -18,20 +18,12 @@
 <body>
 
 <h1>List Navigation</h1>
-<ul id="myList"></ul>
 <p id="displayedItem"></p>
 
 <script>
     let currentIndex = 0;
     const listItems = ['Item 1', 'Item 2', 'Item 3']; // Add more items as needed
     const displayedItem = document.getElementById('displayedItem');
-
-    // Populate the list
-    listItems.forEach(item => {
-        const listItemElement = document.createElement('li');
-        listItemElement.textContent = item;
-        listElement.appendChild(listItemElement);
-    });
 
     document.addEventListener('keydown', function (event) {
         switch (event.key) {
@@ -49,7 +41,7 @@
 
     function iframeCurrentItem() {
         const currentListItem = listItems[currentIndex];
-        const iframeCode = `<iframe id="ifra" src="${currentListItem}"></iframe>`;
+        const iframeCode = `<iframe src="${currentListItem}"></iframe>`;
         displayedItem.innerHTML = iframeCode;
     }
 

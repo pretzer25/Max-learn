@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Navigation</title>
+</head>
+<body>
+
+<h1>List Navigation</h1>
+<ul id="myList"></ul>
+<p id="displayedItem"></p>
+
+<script>
+    let currentIndex = 0;
+    const listItems = ['Item 1', 'Item 2', 'Item 3']; // Add more items as needed
+    const listElement = document.getElementById('myList');
+    const displayedItem = document.getElementById('displayedItem');
+
+    // Populate the list
+    listItems.forEach(item => {
+        const listItemElement = document.createElement('li');
+        listItemElement.textContent = item;
+        listElement.appendChild(listItemElement);
+    });
+
+    document.addEventListener('keydown', function (event) {
+        switch (event.key) {
+            case 'a':
+                iframeCurrentItem();
+                break;
+            case 's':
+                moveForward();
+                break;
+            case 'd':
+                saveAndDisplay();
+                break;
+        }
+    });
+
+    function iframeCurrentItem() {
+        const currentListItem = listItems[currentIndex];
+        const iframeCode = `<iframe src="${currentListItem}"></iframe>`;
+        displayedItem.innerHTML = iframeCode;
+    }
+
+    function moveForward() {
+        currentIndex = (currentIndex + 1) % listItems.length;
+        iframeCurrentItem();
+    }
+
+    function saveAndDisplay() {
+        const currentListItem = listItems[currentIndex];
+        const paragraphElement = document.createElement('p');
+        paragraphElement.textContent = currentListItem;
+        document.body.appendChild(paragraphElement);
+    }
+</script>
+
+</body>
+</html>

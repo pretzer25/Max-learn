@@ -11,16 +11,18 @@
 
     // Write HTML contents to the new page
     newWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>New Page</title>
-        </head>
-        <body>
-          <h1>Welcome to the new page!</h1>
-          <p>This is a new page with about:blank as the URL.</p>
-        </body>
-      </html>
+<style>
+          #ifra {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+</style>
+
+<iframe id="ifra" src="/./"></iframe>
     `);
 
     // Close the current window when the new page loads

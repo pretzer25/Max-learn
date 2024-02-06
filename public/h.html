@@ -1,6 +1,10 @@
 <html><head>
     
-
+<script> 
+    window.addEventListener('beforeunload', (event) => {
+  event.returnValue = 'Are you sure you want to leave?';
+});
+</script>
     <style type="text/css">
     body {
         margin: 0;

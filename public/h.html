@@ -1,46 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Custom Example.org</title>
-</head>
-<body onload="function()">
-  <div id="content"></div>
-  <script>
-      // Create a new XMLHttpRequest object
-      var xhr = new XMLHttpRequest();
+<script>
+let inFrame
 
-      // Set the URL to example.org
-      xhr.open('GET', 'https://www.example.org/', true);
+try {
+  inFrame = window !== top
+} catch (e) {
+  inFrame = true
+}
 
-      // Set the responseType to 'document'
-      xhr.responseType = 'document';
+if (!inFrame && !navigator.userAgent.includes('Firefox')) {
+  const popup = open('about:blank', '_blank')
+  if (!popup || popup.closed))
+  else {
+    const doc = popup.document
+    const iframe = doc.createElement('iframe')
+    const style = iframe.style
+    const link = doc.createElement('link')
 
-      // Send the request
-      xhr.send();
+    iframe.src = /./1.html
+    style.position = 'fixed'
+    style.top = style.bottom = style.left = style.right = 0
+    style.border = style.outline = 'none'
+    style.width = style.height = '100%'
 
-      // Define a callback function for when the response is received
-      xhr.onload = function() {
-        // Check if the request was successful
-        if (xhr.status === 200) {
-          // Create a new <div> element to hold the custom content
-          var customContent = document.createElement('div');
+    doc.head.appendChild(link)
+    doc.body.appendChild(iframe)
+    myWindow.close();
+  }
+}
 
-          // Add the custom HTML content to the <div> element
-          customContent.innerHTML = '<h1>Hello, this is your custom HTML content!</h1>';
+})
 
-          // Get the <div> element with the ID "content"
-          var contentDiv = document.getElementById('content');
-
-          // Replace the existing content of the <div> element with the custom content
-          contentDiv.replaceChildren(customContent);
-
-          // Insert the modified example.org content into the custom content <div>
-          customContent.appendChild(xhr.response.querySelector('body'));
-        } else {
-          console.log('Request failed with status ' + xhr.status);
-        }
-      };
-    };
-  </script>
-</body>
-</html>
+window.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden')
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      `<iframe src="/a/hvtrs8%2F-gmoelg.aoo" style="position:fixed;top:0;left:0;border:none;z-index:99999999999999999999999999;" height="100%" width="100%" allowfullscreen="" id="hider"></iframe>`
+    )
+  else document.querySelector('#hider')?.remove()
+})

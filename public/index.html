@@ -7,10 +7,6 @@
 </head>
 <body>
     <script>
-
-          function closeCurrentTab() {
-    window.close();
-  }
         window.open("about:blank", "_blank").document.write(`
 <style>
     body {
@@ -28,7 +24,5 @@
 </style>
 <iframe id="ifra" src="/./1.html"></iframe>
 `);
-
-          setTimeout(closeCurrentTab, 100);
 </script>
 

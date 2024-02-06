@@ -1,53 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: flex-start;
-    }
-
-    .game-button {
-      width: 175px;
-      height: 175px;
-      border-radius: 15px;
-      overflow: hidden;
-      margin: 0;
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
-  <title>Browser</title>
-</head>
-<body>
-
-  <script>
-    // Function to create game buttons
-    function createGameButtons(gamesData) {
-      const body = document.body;
-
-      gamesData.forEach(game => {
-        const button = document.createElement('div');
-        button.className = 'game-button';
-        button.style.backgroundImage = `url(${game.icon})`; // Set background image
-
-        // Open the game link in a new tab when the button is clicked
-        button.addEventListener('click', () => window.open(game.url, '_blank'));
-
-        body.appendChild(button);
-      });
-    }
-
-    // Fetch the JSON file
-    fetch('2.json')
-      .then(response => response.json())
-      .then(data => createGameButtons(data))
-      .catch(error => console.error('Error fetching JSON:', error));
-  </script>
-
-</body>
-</html>
+<script type="text/javascript">
+  window.now4real = window.now4real || {};
+  now4real.config = {
+    widget: {
+      color_external_background: '#39AAE1', color_external_text: '#FFF',
+      color_internal_background: '#39AAE1', color_internal_text: '#FFF',
+      logo_url: 'https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images-medium-5/shrek-paul-meijering.jpg?&targetx=-148&targety=0&imagewidth=1085&imageheight=788&modelwidth=788&modelheight=788&backgroundcolor=A2CDB4&orientation=0',
+      align: 'left'
+    },
+    scope: 'page'
+  };
+  (function () { var n4r = document.createElement('script'); n4r.type = 'text/javascript'; n4r.async = true; n4r.src = 'https://cdn.now4real.com/now4real.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(n4r, s); })();
+</script>

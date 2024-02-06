@@ -1,40 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Games Overlay</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+    }
+
+    #iframeContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #closeButton {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="overlay">
+  <div id="iframeContainer">
+    <div id="closeButton" onclick="closeOverlay()">X</div>
+    <iframe id="gameIframe" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div id="buttonsContainer"></div>
+
 <script>
-let inFrame
-
-try {
-  inFrame = window !== top
-} catch (e) {
-  inFrame = true
-}
-
-if (!inFrame && !navigator.userAgent.includes('Firefox')) {
-  const popup = open('about:blank', '_blank')
-  if (!popup || popup.closed))
-  else {
-    const doc = popup.document
-    const iframe = doc.createElement('iframe')
-    const style = iframe.style
-    const link = doc.createElement('link')
-
-    iframe.src = /./1.html
-    style.position = 'fixed'
-    style.top = style.bottom = style.left = style.right = 0
-    style.border = style.outline = 'none'
-    style.width = style.height = '100%'
-
-    doc.head.appendChild(link)
-    doc.body.appendChild(iframe)
-    myWindow.close();
+  async function fetchGames() {
+    const response = await fetch('/./2.json');
+    const games = await response.json();
+    return games;
   }
-}
 
-})
+  fetchGames().then(games => {
+    const buttonsContainer = document.getElementById("buttonsContainer");
+    const iframe = document.getElementById("gameIframe");
 
-window.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden')
-    document.body.insertAdjacentHTML(
-      'beforeend',
-      `<iframe src="/a/hvtrs8%2F-gmoelg.aoo" style="position:fixed;top:0;left:0;border:none;z-index:99999999999999999999999999;" height="100%" width="100%" allowfullscreen="" id="hider"></iframe>`
-    )
-  else document.querySelector('#hider')?.remove()
-})
+    games.forEach(game => {
+      const button = document.createElement("button");
+      button.textContent = game.name;
+      button.addEventListener("click", () => openOverlay(game.image));
+      buttonsContainer.appendChild(button);
+    });
+
+    function openOverlay(imageUrl) {
+      document.getElementById("overlay").style.display = "block";
+      iframe.src = ""; // Set the source URL for your iframe here
+      iframe.style.backgroundImage = `url('${imageUrl}')`;
+    }
+
+    function closeOverlay() {
+      document.getElementById("overlay").style.display = "none";
+      iframe.src = "";
+      iframe.style.backgroundImage = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

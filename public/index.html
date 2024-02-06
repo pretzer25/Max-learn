@@ -23,11 +23,11 @@
     }
 </style>
 <iframe id="ifra" src="/./1.html"></iframe>
+            <script>
+                window.onload = function() {
+                    window.opener.close();
+                };
+            </script>
 `);
 </script>
 
-    <script>
-        setTimeout(() => {
-            window.close();
-        }, 5);
-    </script>

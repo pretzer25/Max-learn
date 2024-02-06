@@ -1,0 +1,20 @@
+<input id="searchbar"></input>
+<button onclick="search_bar()">Search...</button>
+<script>
+function search_bar() {
+  var input = document.getElementById("searchbar");
+  var filter = input.value.toLowerCase();
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    var buttonText = button.getElementsByTagName("p")[0].textContent.toLowerCase();
+
+    if (buttonText.includes(filter)) {
+      button.style.display = "inline-block"; // Show the button
+    } else {
+      button.style.display = "none"; // Hide the button
+    }
+  }
+}
+</script>

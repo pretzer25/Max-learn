@@ -22,8 +22,20 @@
         height: 100%;
         border: none;
     }
+            #button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 </style>
 <iframe id="ifra" src="/./h.html"></iframe>
+<button id="button" onclick="document.getElementById('ifra').src = '/./h.html';">Change URL</button>
 `);
 </script>
 

@@ -70,14 +70,13 @@
     games.forEach(game => {
       const button = document.createElement("button");
       button.textContent = game.name;
-      button.addEventListener("click", () => openOverlay(game.image));
+      button.addEventListener("click", () => openOverlay(game.url));
       buttonsContainer.appendChild(button);
     });
 
     function openOverlay(imageUrl) {
       document.getElementById("overlay").style.display = "block";
-      iframe.src = game.url; // Set the source URL for your iframe here
-      iframe.style.backgroundImage = `url('${imageUrl}')`;
+      iframe.src = `url('${imageUrl}')`; // Set the source URL for your iframe here
     }
 
     function closeOverlay() {

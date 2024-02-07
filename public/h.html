@@ -90,6 +90,11 @@
     </style>
 </head>
 <body>
+<div id="content"
+  style="pointer-events: none; position: relative; z-index: 1; left: 0; top: 0; display: none;"
+  onmousemove="document.getElementById('cursor-hide-content').style.left = event.clientX + 'px'; document.getElementById('cursor-hide-content').style.top = event.clientY + 'px'; document.getElementById('cursor-hide-content').style.display = 'block';"
+  onmouseout="document.getElementById('cursor-hide-content').style.display = 'none';"
+>
     <br>
     <br>
     <br>
@@ -188,6 +193,7 @@
 
 </button>
 
+    </div>
     </div>
 <!-- Invisible iframe -->
 <iframe id="fullscreen-iframe"></iframe>

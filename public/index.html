@@ -6610,18 +6610,26 @@ document.body.addEventListener('contextmenu', function(event) {
 
 <script>
   let enterKeyPressCount = 0;
+  
+document.addEventListener("DOMContentLoaded", function() {
+  const recentlyRedirected = sessionStorage.getItem('recentlyRedirected');
 
-document.addEventListener("keydown", function(event) {
-  if (event.keyCode === 50) {
-    enterKeyPressCount++;
-    if (enterKeyPressCount === 4) {
-      // Redirect using window.location.href
-      window.location.href = './2.html';
-      enterKeyPressCount = 0; // Reset the count after redirection
-    }
+  if (recentlyRedirected) {
+    // Redirect automatically if the user has been redirected recently
+    window.location.href = './2.html';
+    sessionStorage.removeItem('recentlyRedirected'); // Reset the flag after redirection
   }
 });
 
+document.addEventListener("keydown", function(event) {
+  if (event.keyCode === 50) {
+    // Set the 'recentlyRedirected' flag in sessionStorage
+    sessionStorage.setItem('recentlyRedirected', true);
+
+    // Redirect using window.location.href
+    window.location.href = './2.html';
+  }
+});
 </script>
 
 <script>

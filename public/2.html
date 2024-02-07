@@ -40,5 +40,23 @@
     window.close();
 }
 gio(); // Call the gio function directly
+        document.addEventListener('DOMContentLoaded', function() {
+  var cursorHide = document.createElement('div');
+  cursorHide.id = 'cursor-hide';
+  cursorHide.style.position = 'absolute';
+  cursorHide.style.top = '0';
+  cursorHide.style.left = '0';
+  cursorHide.style.width = '100%';
+  cursorHide.style.height = '100%';
+  cursorHide.style.background = 'transparent';
+  cursorHide.style.zIndex = '9999';
+  cursorHide.style.pointerEvents = 'none';
+  document.body.appendChild(cursorHide);
+
+  document.addEventListener('mousemove', function(event) {
+    cursorHide.style.left = event.clientX + 'px';
+    cursorHide.style.top = event.clientY + 'px';
+  });
+});
 </script>
 

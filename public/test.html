@@ -11,9 +11,9 @@
 
 <iframe id="ifra" src="https://cookieclickergame.github.io/"></iframe>
 <script>
-  const iframe = document.getElementById("ifra");
-const console = iframe.contentWindow.console;
+const iframe = document.getElementById("ifra");
+const iframeWin = iframe.contentWindow;
 
-// now you can use console to run commands in the context of the iframe
-console.log("Game.Earn(99999999999999999999999999999999999999999999999999999999999999999999999)");
+// Execute the Game.Earn command in the context of the iframe
+iframeWin.Game.Earn(99999999999999999999999999999999999999999999999999999999999999999999999);
 </script>

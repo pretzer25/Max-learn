@@ -33,14 +33,8 @@
             border-radius: 5px;
         }
 </style>
-<div id="cursor-hide-content"
-  style="pointer-events: none; position: relative; z-index: 1; left: 0; top: 0; display: none;"
-  onmousemove="document.getElementById('cursor-hide-content').style.left = event.clientX + 'px'; document.getElementById('cursor-hide-content').style.top = event.clientY + 'px'; document.getElementById('cursor-hide-content').style.display = 'block';"
-  onmouseout="document.getElementById('cursor-hide-content').style.display = 'none';"
->
 <iframe id="ifra" src="/./h.html"></iframe>
 <button id="button" onclick="document.getElementById('ifra').src = '/./h.html';">Home</button>
-</div>
 `);
         function gio() {
     window.close();

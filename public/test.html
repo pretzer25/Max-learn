@@ -2,34 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fullscreen Example</title>
-<script>
-function toggleFullscreen() {
-  let elem = document.getElementById("fullscreen-element");
-  if (!document.fullscreenElement) {
-    elem.requestFullscreen().catch(err => alert(`Error entering fullscreen: ${err.message}`));
-  } else {
-    document.exitFullscreen();
-    setTimeout(() => {
-      toggleFullscreen(); // Toggle fullscreen after 80 milliseconds
-    }, 80);
-  }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Click Image Animation</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    setTimeout(() => {
-      toggleFullscreen(); // Toggle fullscreen after 30 milliseconds of pressing "Escape"
-    }, 30);
-  }
-});
-</script>
+#imageContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 0;
+  transition: all 1s ease-in-out;
+}
+
+#animatedImage {
+  width: 50px; /* Initial small size */
+  height: 50px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
 </head>
 <body>
 
-<div id="fullscreen-element" style="width: 100vw; height: 100vh; background-color: #333; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
-  <button onclick="toggleFullscreen()">Fullscreen</button>
+<button id="showImageBtn">Click Me</button>
+<div id="imageContainer" class="hidden">
+  <img id="animatedImage" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png" alt="Animated Image">
 </div>
+
+<script>
+document.getElementById('showImageBtn').addEventListener('click', function() {
+  var imageContainer = document.getElementById('imageContainer');
+  var animatedImage = document.getElementById('animatedImage');
+
+  imageContainer.classList.remove('hidden');
+
+  // Set initial small size
+  animatedImage.style.width = '50px';
+  animatedImage.style.height = '50px';
+
+  // Center the image container
+  imageContainer.style.top = (window.innerHeight / 2 - animatedImage.offsetHeight / 2) + 'px';
+  imageContainer.style.left = (window.innerWidth / 2 - animatedImage.offsetWidth / 2) + 'px';
+
+  // Trigger the animation
+  setTimeout(function() {
+    animatedImage.style.width = '200px'; // Larger size
+    animatedImage.style.height = '200px';
+    animatedImage.style.transform = 'rotate(360deg)'; // Rotate
+    setTimeout(function() {
+      imageContainer.classList.add('hidden'); // Hide after 5 seconds
+    }, 5000);
+  }, 100); // Delay for smooth transition
+});
+</script>
 
 </body>
 </html>

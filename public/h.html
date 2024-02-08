@@ -95,7 +95,7 @@
 </head>
 <body>
     <!-- <div id="container"> -->
-            <h1>Attention!!!! Indifferent to classmate's Roblox-related expulsion threat, Unbothered by potential expulsion for in-class Fortnite playing.</h1>
+            <h1>Attention!!!! Indifferent to classmate's Roblox-related expulsion threat, Unbothered by potential expulsion for in-class Fortnite playing.</h1> <button onclick="chaos()">Ultra-cloak mode (don't click unless needed, makes performance ultra low)</button>
 <hr>
         <h1> Trending:</h1>
         <button id="exampleButton" onclick="gg('/./g/la.html')">
@@ -254,6 +254,27 @@ _img.onload = function() {
 _img.id = "char1";
 /* you can use whatever image you like */
 _img.src = "https://i.imgur.com/FmXCDNG.gif";
+
+
+  function chaos() {
+    for (let i = 0; i < 8; i++) {
+      const _imgCopy = document.createElement("img");
+      _imgCopy.style.position = 'absolute';
+      _imgCopy.style.margin = '0';
+      _imgCopy.style.zIndex = '1';
+      _imgCopy.onload = function() {
+        document.body.insertBefore(_imgCopy, document.body.firstChild);
+        setInterval(function(){
+          _imgCopy.style.left = Math.floor(Math.random() * (window.innerWidth - _imgCopy.width))+'px';
+          _imgCopy.style.top = Math.floor(Math.random() * (window.innerHeight - _imgCopy.height))+'px';
+          var randomRot = (-45+Math.floor((Math.random()*90)));
+          _imgCopy.style.transform = 'rotate('+randomRot+'deg)';
+          _imgCopy.style.webkitTransform = 'rotate('+randomRot+'deg)';
+        }, 1500);
+      }
+      _imgCopy.src = "https://i.imgur.com/FmXCDNG.gif";
+    }
+  }
 </script>
     
     <!-- </div> -->

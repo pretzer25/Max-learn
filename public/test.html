@@ -15,6 +15,14 @@ function toggleFullscreen() {
     }, 80);
   }
 }
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    setTimeout(() => {
+      toggleFullscreen(); // Toggle fullscreen after 30 milliseconds of pressing "Escape"
+    }, 30);
+  }
+});
 </script>
 </head>
 <body>

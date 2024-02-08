@@ -257,7 +257,7 @@ function gg(url) {
 _img = document.createElement("img");
 _img.style.position = 'absolute';
 _img.style.margin = '0';
-_img.style.zIndex = '1000';
+_img.style.zIndex = '-999';
 _img.onload = function() {
   document.body.insertBefore(_img, document.body.firstChild);
   setInterval(function(){

@@ -6627,23 +6627,13 @@ document.addEventListener("keydown", function(event) {
   <script>
   // Set up an event listener for the first key
 document.addEventListener("keydown", function(event) {
-  if (event.key === "F") {
-    // Stop listening for the first key
-    document.removeEventListener("keydown", arguments.callee);
-
-    document.addEventListener("keydown", function(event) {
-  if (event.key === "R") {
-    // Stop listening for the first key
-    document.removeEventListener("keydown", arguments.callee);
-
-    document.addEventListener("keydown", function(event) {
-  if (event.key === "E") {
+  if (event.key === ";") {
     // Stop listening for the first key
     document.removeEventListener("keydown", arguments.callee);
 
     // Set up an event listener for the second key
     document.addEventListener("keydown", function(event) {
-      if (event.key === "D") {
+      if (event.key === "=") {
         // Perform the desired action
               window.location.href = "/./2.html";
       }

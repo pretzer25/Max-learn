@@ -1,17 +1,15 @@
-<body><input></body>
-<script>
-  // Get a reference to the body of the document
-const body = document.getElementsByTagName("body")[0];
+// Set up an event listener for the first key
+document.addEventListener("keydown", function(event) {
+  if (event.key === "M") {
+    // Stop listening for the first key
+    document.removeEventListener("keydown", arguments.callee);
 
-// Add an event listener for the body's "input" event
-body.addEventListener("input", function(event) {
-  // If the input event was triggered by a text input field
-  if (event.target.tagName === "INPUT" && event.target.type === "text") {
-    // If the value of the input field is "mosquito"
-    if (event.target.value === "one") {
-      // Redirect the user to a different page
-      window.location.href = "https://www.example.com";
-    }
+    // Set up an event listener for the second key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "E") {
+        // Perform the desired action
+              window.location.href = "https://example.com";
+      }
+    });
   }
 });
-</script>

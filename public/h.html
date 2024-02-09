@@ -25,7 +25,28 @@
             width: auto;
         }
     }
-    </style>    
+    </style>  
+    <script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Get the current page's performance data
+  const performanceData = window.performance.getEntriesByType('navigation')[0];
+  // Extract the origin from the initiatorType property
+  const origin = new URL(performanceData.name).origin;
+  // Get all the links in the same origin
+  const links = Array.from(document.getElementsByTagName('a')).filter(link => new URL(link.href).origin === origin);
+  // Loop through the array and preload each page
+  links.forEach(link => {
+    fetch(link.href, { method: 'HEAD' }).then(() => {
+      console.log(link.href + ' preloaded.');
+    }).catch(() => {
+      console.log(link.href + ' failed to preload.');
+    });
+  });
+});
+</script>
+    </script>
 </head>
 
 <body>

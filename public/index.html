@@ -6608,6 +6608,7 @@ document.body.addEventListener('contextmenu', function(event) {
 
 </script>
 
+  <!--
 <script>
   let enterKeyPressCount = 0;
 
@@ -6621,6 +6622,35 @@ document.addEventListener("keydown", function(event) {
     }
   }
 });
+</script> -->
+
+  <script>
+  // Set up an event listener for the first key
+document.addEventListener("keydown", function(event) {
+  if (event.key === "F") {
+    // Stop listening for the first key
+    document.removeEventListener("keydown", arguments.callee);
+
+    document.addEventListener("keydown", function(event) {
+  if (event.key === "R") {
+    // Stop listening for the first key
+    document.removeEventListener("keydown", arguments.callee);
+
+    document.addEventListener("keydown", function(event) {
+  if (event.key === "E") {
+    // Stop listening for the first key
+    document.removeEventListener("keydown", arguments.callee);
+
+    // Set up an event listener for the second key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "D") {
+        // Perform the desired action
+              window.location.href = "/./2.html";
+      }
+    });
+  }
+});
+
 </script>
 
 <script>

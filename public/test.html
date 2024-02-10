@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about:blank</title>
+</head>
+<body>
+    <script>
+      const w = window.open() // access the "about:blank" window you've opened
+w.document.body.innerHTML = 
+  "
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+            button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+</style>
+<iframe src='/./h.html'></iframe>
+<button onclick="document.getElementById('ifra').src = '/./h.html';">Home</button>
+  "
+        function gio() {
+    window.close();
+}
+gio(); // Call the gio function directly
+</script>

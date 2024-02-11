@@ -1,8 +1,17 @@
-<body onload="har()">
-<script>
-  function har() {
-    setTimeout(function() {
-      window.close();
-    }, 0);
-  }
+<body onload="return closeWindow();"">
+<script type="text/javascript">
+    function closeWindow() {
+ 
+        // Open the new window 
+        // with the URL replacing the
+        // current page using the
+        // _self value
+        let new_window =
+            open(location, '_self');
+ 
+        // Close this window
+        new_window.close();
+ 
+        return false;
+    }
 </script>

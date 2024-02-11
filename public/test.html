@@ -44,15 +44,16 @@
             const decoded = decode(decoderInput.value);
             decoderOutput.value = decoded;
         });
-
-          function go() {
+  </script>
+    <script>
+      function go() {
         var inputField = document.getElementById("decoder-output");
         var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + inputField.value;
         setTimeout(function () {
           window.location.href = websiteUrl;
         }, 100);
       }
-  </script>
+    </script>
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
  <input type="text" readonly="" placeholder="Output" id="decoder-output">

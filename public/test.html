@@ -44,6 +44,14 @@
             const decoded = decode(decoderInput.value);
             decoderOutput.value = decoded;
         });
+
+          function go() {
+        var inputField = document.getElementById("website-input");
+        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + inputField.value;
+        setTimeout(function () {
+          window.location.href = websiteUrl;
+        }, 100);
+      }
   </script>
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
@@ -54,13 +62,3 @@
 <input type="text" readonly="" placeholder="Output" id="encoder-output">
         <button id="encodeButton">Decode</button>
 
-<script>
-      function go() {
-        var inputField = document.getElementById("website-input");
-        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + inputField.value;
-        setTimeout(function () {
-          window.location.href = websiteUrl;
-        }, 100);
-      }
-</script>
-  

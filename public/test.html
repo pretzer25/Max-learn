@@ -48,9 +48,21 @@
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
-        <button id="decodeButton">Decode</button>
+        <button id="decodeButton" onclick="redirectToWebsite()">Encode</button>
 <br>
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
 <input type="text" readonly="" placeholder="Output" id="encoder-output">
-        <button id="encodeButton">Encode</button>
+        <button id="encodeButton">Decode</button>
+
+<script>
+        <script>
+      function go() {
+        var inputField = document.getElementById("website-input");
+        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + inputField.value;
+        setTimeout(function () {
+          window.location.href = websiteUrl;
+        }, 100);
+      }
+    </script>
+</script>
   

@@ -32,22 +32,20 @@
     const decoderInput = document.querySelector("#decoder-input");
     const decodeButton = document.getElementById("decodeButton");
     const decoderOutput = document.querySelector("#decoder-output");
-    
-//    encoderInput.addEventListener("input", event => encoderOutput.value = encode(event.target.value));
-//    decoderInput.addEventListener("input", event => decoderOutput.value = decode(event.target.value));
-            encodeButton.addEventListener("click", () => {
-            const encoded = encode(encoderInput.value);
-            encoderOutput.value = encoded;
-        });
 
-        decodeButton.addEventListener("click", () => {
-            const decoded = decode(decoderInput.value);
-            decoderOutput.value = decoded;
-            go(decoded);
-        });
+//            encodeButton.addEventListener("click", () => {
+//            const encoded = encode(encoderInput.value);
+//            encoderOutput.value = encoded;
+//        });
+
+      decodeButton.addEventListener("click", () => {
+          const decoded = decode(decoderInput.value);
+          decoderOutput.value = decoded;
+          go(decoded);
+      });
 
           function go(input) {
-        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + input;
+        var websiteUrl = "/./go.html?https://max-learn-assets.vercel.app/service/" + input;
         setTimeout(function () {
           window.location.href = websiteUrl;
         }, 100);
@@ -58,7 +56,9 @@
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
         <button id="decodeButton">Encode</button>
 <br>
+<!--
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
 <input type="text" readonly="" placeholder="Output" id="encoder-output">
         <button id="encodeButton">Decode</button>
+-->
 

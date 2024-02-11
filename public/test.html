@@ -27,17 +27,30 @@
     }
 
     const encoderInput = document.querySelector("#encoder-input");
+    const encodeButton = document.getElementById("encodeButton");
     const encoderOutput = document.querySelector("#encoder-output");
     const decoderInput = document.querySelector("#decoder-input");
+    const decodeButton = document.getElementById("decodeButton");
     const decoderOutput = document.querySelector("#decoder-output");
     
-    encoderInput.addEventListener("input", event => encoderOutput.value = encode(event.target.value));
-    decoderInput.addEventListener("input", event => decoderOutput.value = decode(event.target.value));
+//    encoderInput.addEventListener("input", event => encoderOutput.value = encode(event.target.value));
+//    decoderInput.addEventListener("input", event => decoderOutput.value = decode(event.target.value));
+            encodeButton.addEventListener("click", () => {
+            const encoded = encode(encoderInput.value);
+            encoderOutput.value = encoded;
+        });
+
+        decodeButton.addEventListener("click", () => {
+            const decoded = decode(decoderInput.value);
+            decoderOutput.value = decoded;
+        });
   </script>
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
+        <button id="decodeButton">Decode</button>
 <br>
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
 <input type="text" readonly="" placeholder="Output" id="encoder-output">
+        <button id="encodeButton">Encode</button>
   

@@ -46,9 +46,8 @@
         });
   </script>
     <script>
-      function go() {
-        var inputField = document.getElementById("decoder-output");
-        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + inputField.value;
+          function go(input) {
+        var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + input;
         setTimeout(function () {
           window.location.href = websiteUrl;
         }, 100);
@@ -57,7 +56,7 @@
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
-        <button id="decodeButton" onclick="go()">Encode</button>
+        <button id="decodeButton" onclick="go(decoder-output.value)>Encode</button>
 <br>
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
 <input type="text" readonly="" placeholder="Output" id="encoder-output">

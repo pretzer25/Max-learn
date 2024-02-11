@@ -43,9 +43,9 @@
         decodeButton.addEventListener("click", () => {
             const decoded = decode(decoderInput.value);
             decoderOutput.value = decoded;
+            go(decoded);
         });
-  </script>
-    <script>
+
           function go(input) {
         var websiteUrl = "https://dm-unbl0cker-ashen.vercel.app/service/" + input;
         setTimeout(function () {
@@ -56,7 +56,7 @@
 
  <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
-        <button id="decodeButton" onclick="go(decoder-output.value)">Encode</button>
+        <button id="decodeButton">Encode</button>
 <br>
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
 <input type="text" readonly="" placeholder="Output" id="encoder-output">

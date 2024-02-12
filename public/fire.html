@@ -45,16 +45,18 @@
       });
 
           function go(input) {
-        var websiteUrl = "/./go.html?https://max-learn-assets.vercel.app/service/" + input;
+        var websiteUrl = "/./service/" + input;
         setTimeout(function () {
           window.location.href = websiteUrl;
         }, 100);
       }
     </script>
-
- <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input">
+<middle> <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="decoder-input"> </middle>
+<br><br>
+<middle>
  <input type="text" readonly="" placeholder="Output" id="decoder-output">
         <button id="decodeButton">Encode</button>
+    </middle>
 <br>
 <!--
 <input type="text" autocapitalize="off" autocomplete="off" placeholder="Input" id="encoder-input">
